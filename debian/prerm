@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+if [ -x /usr/local/bin/nsswitch_down.sh ]; then
+    /usr/local/bin/nsswitch_down.sh
+fi
+exit 0
