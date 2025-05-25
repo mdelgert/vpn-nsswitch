@@ -5,9 +5,10 @@
 
 INTERFACE="$1"
 ACTION="$2"
-EXPECTED_INTERFACE="wg0"  # WireGuard interface name
-UP_SCRIPT="/etc/nsswitch.d/nsswitch_up.sh"
-DOWN_SCRIPT="/etc/nsswitch.d/nsswitch_down.sh"
+EXPECTED_INTERFACE="wg0"
+SOURCE_DIR="/usr/local/bin"
+UP_SCRIPT="$SOURCE_DIR/nsswitch_up.sh"
+DOWN_SCRIPT="$SOURCE_DIR/nsswitch_down.sh"
 LOG_FILE="/var/log/nsswitch_script.log"
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 
