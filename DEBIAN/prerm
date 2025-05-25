@@ -3,4 +3,10 @@ set -e
 if [ -x /usr/local/bin/nsswitch_down.sh ]; then
     /usr/local/bin/nsswitch_down.sh
 fi
+# Remove /etc/nsswitch.d if empty
+rmdir --ignore-fail-on-non-empty /etc/nsswitch.d 2>/dev/null
+# Remove /usr/local/bin if empty
+rmdir --ignore-fail-on-non-empty /usr/local/bin 2>/dev/null
+# Remove /usr/local if empty
+rmdir --ignore-fail-on-non-empty /usr/local 2>/dev/null
 exit 0
