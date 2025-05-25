@@ -9,7 +9,7 @@ set -e
 rm -f ../nsswitch-vpn_1.0.0.deb ../nsswitch-vpn_1.0.0_*.build ../nsswitch-vpn_1.0.0_*.changes ../nsswitch-vpn_1.0.0_*.tar.* ../nsswitch-vpn_1.0.0_*.dsc
 
 # Remove installed package if present
-#csudo apt remove nsswitch-vpn -y || true
+# sudo apt remove nsswitch-vpn -y || true
 
 # Build the Debian package using standard tools
 DEB_BUILD_OPTIONS=noautodbgsym dpkg-buildpackage -us -uc
