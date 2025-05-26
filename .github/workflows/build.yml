@@ -1,35 +1,41 @@
-name: Build and Release Debian Package
+name: Build Debian Package
 
 on:
   push:
     tags:
       - 'v*.*.*'
+      
+permissions:
+  contents: write
 
 jobs:
-  build-deb:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-24.04
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build Debian package
-        uses: jtdor/build-deb-action@v1
-        with:
-          buildpackage-opts: --build=binary --no-sign
-          artifacts-dir: ./artifacts
-        env:
-          DEB_BUILD_OPTIONS: noautodbgsym
+      - name: Install build tools
+        run: |
+          sudo apt update
+          sudo apt install -y devscripts build-essential debhelper fakeroot
 
-      - name: Upload artifacts
+      - name: Use build script
+        run: |
+          cd tools/
+          sudo ./build.sh
+
+      - name: Upload .deb artifact
         uses: actions/upload-artifact@v4
         with:
-          name: debian-packages
-          path: ./artifacts/*.deb
+          name: vpn-nsswitch
+          path: build-artifacts/*.deb
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          files: ./artifacts/*.deb
+          files: build-artifacts/*.deb
           draft: false
           prerelease: false
         env:
