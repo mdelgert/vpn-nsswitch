@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# NetworkManager dispatcher script to run nsswitch scripts for WireGuard VPN
-# Runs nsswitch_up.sh when wg0 is up, nsswitch_down.sh when wg0 is down
+# NetworkManager dispatcher script to run nsswitch scripts for Open VPN
+# Runs nsswitch_up.sh when tun0 is up, nsswitch_down.sh when tun0 is down
 
 INTERFACE="$1"
 ACTION="$2"
-EXPECTED_INTERFACE="wg0"
-SOURCE_DIR="/usr/local/bin"
+EXPECTED_INTERFACE="tun0"
+SOURCE_DIR="etc/nsswitch.d"
 UP_SCRIPT="$SOURCE_DIR/nsswitch_up.sh"
 DOWN_SCRIPT="$SOURCE_DIR/nsswitch_down.sh"
 LOG_FILE="/var/log/nsswitch_script.log"
@@ -22,7 +22,7 @@ log_message() {
 # Debug: Log all received parameters
 log_message "DEBUG" "Received: INTERFACE=$INTERFACE, ACTION=$ACTION"
 
-# Skip if interface is not wg0
+# Skip if interface is not tun0
 if [[ "$INTERFACE" != "$EXPECTED_INTERFACE" ]]; then
     log_message "INFO" "Interface $INTERFACE does not match $EXPECTED_INTERFACE. Skipping."
     exit 0

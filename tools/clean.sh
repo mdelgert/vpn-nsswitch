@@ -18,8 +18,9 @@ rm -rf debian/vpn-nsswitch/
 rm -rf debian/files
 
 # Remove installed files
-rm -f /var/log/nsswitch_script.log
-rm -rf /etc/nsswitch.d
-rm /usr/bin/nsswitch_up.sh
-rm /usr/bin/nsswitch_down.sh
-rm /etc/NetworkManager/dispatcher.d/99-vpn-nsswitch.sh
+# rm -f /var/log/nsswitch_script.log
+# rm -rf /etc/nsswitch.d
+# rm /usr/bin/nsswitch_up.sh
+# rm /usr/bin/nsswitch_down.sh
+# rm /etc/NetworkManager/dispatcher.d/vpn-nsswitch-openvpn.sh
+# rm /etc/NetworkManager/dispatcher.d/vpn-nsswitch-wireguard.sh
