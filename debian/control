@@ -11,7 +11,7 @@ Package: vpn-nsswitch
 Section: utils
 Priority: extra
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, bash, network-manager
+Depends: ${shlibs:Depends}, ${misc:Depends}, network-manager
 Description: Automates NSSwitch changes for Wireguard and OpenVpn DNS resolution
  Installs scripts to modify /etc/nsswitch.conf when OpenVPN (tun0) or WireGuard
  (wg0) by NetworkManager are activated or deactivated.

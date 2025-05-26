@@ -19,7 +19,7 @@ jobs:
       - name: Install build tools
         run: |
           sudo apt update
-          sudo apt install -y devscripts build-essential debhelper fakeroot
+          sudo apt install -y devscripts build-essential debhelper fakeroot lintian
 
       - name: Use build script
         run: |
