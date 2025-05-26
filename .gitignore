@@ -1,8 +1,6 @@
 build-artifacts
 vpn-nsswitch
 debian/files
-debian/nsswitch-vpn*
+debian/vpn-nsswitch*
 debian/.debhelper
 debian/debhelper-build-stamp
-debian/nsswitch-vpn.debhelper.log
-debian/nsswitch-vpn.substvars

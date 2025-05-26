@@ -1,4 +1,4 @@
-nsswitch-vpn (1.0.0) unstable; urgency=medium
+vpn-nsswitch (1.0.0) unstable; urgency=medium
 
   * Initial release.
 
