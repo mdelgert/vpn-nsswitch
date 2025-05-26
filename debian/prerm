@@ -8,3 +8,5 @@ sudo rm -f /etc/NetworkManager/dispatcher.d/vpn-nsswitch-wireguard.sh
 sudo rm -rf /etc/nsswitch.d/
 
 exit 0
+
+#DEBHELPER#

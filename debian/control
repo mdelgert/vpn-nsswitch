@@ -4,8 +4,8 @@ Priority: extra
 Maintainer: Matthew Elgert <mdelgert@yahoo.com>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.3
-Vcs-Git: git@github.com:mdelgert/vpn-nsswitch.git
-Vcs-Browser: http://github.com/mdelgert/vpn-nsswitch
+Vcs-Git: https://github.com/mdelgert/vpn-nsswitch.git
+Vcs-Browser: https://github.com/mdelgert/vpn-nsswitch
 
 Package: vpn-nsswitch
 Section: utils

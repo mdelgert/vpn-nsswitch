@@ -1,5 +1,9 @@
 #!/bin/sh
 set -e
+
 touch /var/log/nsswitch_script.log
 chmod 644 /var/log/nsswitch_script.log
+
 exit 0
+
+#DEBHELPER#
