@@ -2,6 +2,9 @@
 %:
 	dh $@
 
+override_dh_auto_make:
+	make
+
 override_dh_auto_install:
 	dh_auto_install
 	install -D -m 755 usr/local/bin/nsswitch_up.sh $(DESTDIR)/usr/local/bin/nsswitch_up.sh
