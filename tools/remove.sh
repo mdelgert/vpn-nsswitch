@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-apt-get remove vpn-nsswitch -y
-apt-get purge vpn-nsswitch -y
+apt-get remove nsswitch-vpn -y
+apt-get purge nsswitch-vpn -y
 apt-get autoremove -y
 apt-get clean -y
