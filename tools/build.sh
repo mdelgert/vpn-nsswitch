@@ -9,10 +9,10 @@ cd "$PROJECT_ROOT"
 # This script builds the package using debuild and moves all build artifacts to ./build-artifacts
 
 # Check if script is run as root (sudo)
-if [ "$EUID" -ne 0 ]; then
-    echo "Error: This script must be run as root (use sudo)." >&2
-    exit 1
-fi
+# if [ "$EUID" -ne 0 ]; then
+#     echo "Error: This script must be run as root (use sudo)." >&2
+#     exit 1
+# fi
 
 # Clean up previous artifacts
 rm -rf build-artifacts

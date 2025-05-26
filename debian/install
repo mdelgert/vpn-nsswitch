@@ -5,3 +5,4 @@ etc/nsswitch.d/nsswitch_up.sh etc/nsswitch.d/
 etc/nsswitch.d/nsswitch_down.sh etc/nsswitch.d/
 etc/nsswitch.d/nsswitch_up.conf etc/nsswitch.d/
 etc/nsswitch.d/nsswitch_down.conf etc/nsswitch.d/
+debian/vpn-nsswitch.1 usr/share/man/man1/

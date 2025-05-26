@@ -9,7 +9,7 @@ Vcs-Browser: http://github.com/mdelgert/vpn-nsswitch
 
 Package: vpn-nsswitch
 Section: utils
-Priority: extra
+Priority: optional
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, network-manager
 Description: Automates NSSwitch changes for Wireguard and OpenVpn DNS resolution
