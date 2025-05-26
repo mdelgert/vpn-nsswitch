@@ -8,7 +8,7 @@ When a VPN is activated, it sets:
 hosts: files dns mdns4
 ```
 
-to prioritize DNS resolution, ensuring SSH can resolve `.local` hostnames (e.g., `b1.local`). When the VPN is deactivated, it restores:
+to prioritize DNS resolution, ensuring SSH can resolve `.local` hostnames (e.g., `host.local`). When the VPN is deactivated, it restores:
 
 ```
 hosts: files mdns4_minimal [NOTFOUND=return] dns
@@ -34,17 +34,11 @@ to maintain default mDNS behavior.
 
 Download the latest `.deb` package from the [Releases page](https://github.com/mdelgert/vpn-nsswitch/releases).
 
-Install using `apt`:
+Install using `dpkg`:
 
 ```sh
-wget https://github.com/mdelgert/vpn-nsswitch/releases/download/v1.0.0/nsswitch-vpn_1.0.0_all.deb
-sudo apt install ./nsswitch-vpn_1.0.0_all.deb
-```
-
-Or with `dpkg`:
-
-```sh
-sudo dpkg -i nsswitch-vpn_1.0.0_all.deb
+wget -O vpn-nsswitch.deb $(curl -s https://api.github.com/repos/mdelgert/vpn-nsswitch/releases/latest | grep "browser_download_url.*deb" | cut -d '"' -f 4)
+sudo dpkg -i vpn-nsswitch.deb
 sudo apt-get install -f
 ```
 
@@ -61,8 +55,7 @@ dpkg -l nsswitch-vpn
 Confirm scripts and configs:
 
 ```sh
-ls /usr/local/bin/nsswitch_*.sh
-ls /etc/nsswitch.d/*.conf
+ls /etc/nsswitch.d/
 ls /etc/NetworkManager/dispatcher.d/99-vpn-nsswitch.sh
 ```
 
@@ -108,7 +101,7 @@ hosts: files dns mdns4
 ### Test SSH
 
 ```sh
-ssh b1.local
+ssh host.local
 ```
 
 ---
@@ -160,7 +153,7 @@ cat /var/log/nsswitch_script.log
   ```sh
   cat /var/log/nsswitch_script.log
   ```
-- Ensure `~/.ssh/config` doesn’t override `b1.local`:
+- Ensure `~/.ssh/config` doesn’t override `host.local`:
 
   ```sh
   cat ~/.ssh/config
@@ -169,7 +162,7 @@ cat /var/log/nsswitch_script.log
 **Fix:**
 
 ```sshconfig
-Host b1.local
+Host host.local
     HostName 192.168.50.241
     User <username>
 ```
@@ -196,7 +189,7 @@ hosts: files mdns4_minimal dns
 Re-run:
 
 ```sh
-sudo /usr/local/bin/nsswitch_up.sh
+sudo /etc/nsswitch.d/nsswitch_up.sh
 ```
 
 ---
@@ -231,7 +224,7 @@ Remove the package:
 sudo apt remove nsswitch-vpn
 ```
 
-This runs `/usr/local/bin/nsswitch_down.sh` to restore `/etc/nsswitch.conf`.
+This runs `/etc/nsswitch.d/nsswitch_down.sh` to restore `/etc/nsswitch.conf`.
 
 ---
 
