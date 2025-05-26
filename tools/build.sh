@@ -27,7 +27,8 @@ done
 
 # Build the package
 cd "$PROJECT_ROOT"
-dpkg-buildpackage -us -uc -b
+# dpkg-buildpackage -us -uc -b
+dpkg-buildpackage -us -uc
 
 # Move new artifacts from parent dir to build-artifacts/
 shopt -s nullglob
@@ -37,3 +38,15 @@ for pattern in "${delete_patterns[@]}"; do
     done
 done
 shopt -u nullglob
+
+# Check with lintian
+if command -v lintian &> /dev/null; then
+    echo "Running lintian on the built package..."
+    lintian build-artifacts/*.deb
+else
+    echo "Lintian is not installed. Skipping lintian check."
+fi
+echo "Build artifacts are located in: $PROJECT_ROOT/build-artifacts"
+echo "Build completed successfully."
+# List the contents of the build-artifacts directory
+ls -l build-artifacts
