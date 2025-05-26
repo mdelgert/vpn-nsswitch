@@ -1,6 +1,12 @@
 #!/bin/bash
 
-sudo apt-get remove vpn-nsswitch -y
-sudo apt-get purge vpn-nsswitch -y
-sudo apt-get autoremove -y
-sudo apt-get clean -y
+# Check if script is run as root (sudo)
+if [ "$EUID" -ne 0 ]; then
+    echo "Error: This script must be run as root (use sudo)." >&2
+    exit 1
+fi
+
+apt-get remove vpn-nsswitch -y
+apt-get purge vpn-nsswitch -y
+apt-get autoremove -y
+apt-get clean -y

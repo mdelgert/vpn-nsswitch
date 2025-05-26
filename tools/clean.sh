@@ -8,6 +8,7 @@ fi
 
 cd ../
 
+# Remove the debian package
 rm vpn-nsswitch
 rm -rf build-artifacts/
 rm -rf debian/.debhelper/
@@ -15,3 +16,10 @@ rm -rf debian/debhelper*
 rm -rf debian/nsswitch-vpn*
 rm -rf debian/vpn-nsswitch/
 rm -rf debian/files
+
+# Remove installed files
+rm -f /var/log/nsswitch_script.log
+rm -rf /etc/nsswitch.d
+rm /usr/bin/nsswitch_up.sh
+rm /usr/bin/nsswitch_down.sh
+rm /etc/NetworkManager/dispatcher.d/99-vpn-nsswitch.sh
