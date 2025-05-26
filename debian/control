@@ -1,16 +1,17 @@
 Source: nsswitch-vpn
-Maintainer: Matthew Elgert mdelgert@yahoo.com
-Homepage: https://github.com/mdelgert/vpn-nsswitch
+Section: utils
+Priority: extra
+Maintainer: Matthew Elgert <mdelgert@yahoo.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Vcs-Git: git@github.com:mdelgert/nsswitch-vpn.git
+Vcs-Browser: http://github.com/mdelgert/nsswitch-vpn
 
 Package: nsswitch-vpn
-Version: 1.0.0
-Section: net
-Priority: optional
-Architecture: all
-Depends: network-manager (>= 1.36.6), wireguard | openvpn, bash
-Description: Automates NSSwitch changes for VPN SSH DNS resolution
+Section: utils
+Priority: extra
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Automates NSSwitch changes for Wireguard and OpenVpn DNS resolution
  Installs scripts to modify /etc/nsswitch.conf when OpenVPN (tun0) or WireGuard
- (wg0) VPNs managed by NetworkManager are activated or deactivated. Fixes SSH DNS
- resolution for .local hostnames by switching between 'hosts: files dns mdns4'
- and 'hosts: files mdns4_minimal [NOTFOUND=return] dns'. Includes logging and
- backups for safe operation.
+ (wg0) by NetworkManager are activated or deactivated.

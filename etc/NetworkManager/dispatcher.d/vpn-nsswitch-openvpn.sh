@@ -38,8 +38,9 @@ fi
 case "$ACTION" in
     up)
         if [[ -x "$UP_SCRIPT" ]]; then
-            log_message "INFO" "Running $UP_SCRIPT for $EXPECTED_INTERFACE VPN up"
+            log_message "INFO" "OpenVPN running $UP_SCRIPT for $EXPECTED_INTERFACE VPN up"
             sudo "$UP_SCRIPT"
+            # sudo "resolvectl domain $EXPECTED_INTERFACE ~local"
             if [[ $? -eq 0 ]]; then
                 log_message "INFO" "$UP_SCRIPT executed successfully"
             else
@@ -51,8 +52,9 @@ case "$ACTION" in
         ;;
     down)
         if [[ -x "$DOWN_SCRIPT" ]]; then
-            log_message "INFO" "Running $DOWN_SCRIPT for $EXPECTED_INTERFACE VPN down"
+            log_message "INFO" "OpenVPN running $DOWN_SCRIPT for $EXPECTED_INTERFACE VPN down"
             sudo "$DOWN_SCRIPT"
+            # sudo "resolvectl revert $EXPECTED_INTERFACE"
             if [[ $? -eq 0 ]]; then
                 log_message "INFO" "$DOWN_SCRIPT executed successfully"
             else
