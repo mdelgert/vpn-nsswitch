@@ -4,4 +4,4 @@ cd ../
 
 cd build-artifacts
 
-sudo dpkg -i vpn-nsswitch_0.0.2-1_amd64.deb
+sudo dpkg -i nsswitch-vpn_1.0.0_amd64.deb
