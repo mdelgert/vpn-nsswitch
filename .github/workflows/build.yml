@@ -24,7 +24,7 @@ jobs:
       - name: Use build script
         run: |
           cd tools/
-          sudo ./build.sh
+          ./build.sh
 
       - name: Upload .deb artifact
         uses: actions/upload-artifact@v4
