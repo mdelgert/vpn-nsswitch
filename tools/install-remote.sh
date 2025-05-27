@@ -12,9 +12,8 @@ mkdir -p build-artifacts
 
 cd build-artifacts
 
-if dpkg -l | grep -q '^ii  vpn-nsswitch '; then
-  sudo apt purge vpn-nsswitch -y
-fi
+# Clean previous install if it exists
+sudo apt purge -y vpn-nsswitch || true
 
 wget -O vpn-nsswitch.deb $(curl -s https://api.github.com/repos/mdelgert/vpn-nsswitch/releases/latest | grep "browser_download_url.*deb" | cut -d '"' -f 4)
 
