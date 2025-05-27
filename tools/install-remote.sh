@@ -7,10 +7,19 @@ if [ "$EUID" -eq 0 ]; then
 fi
 
 cd ../
+
 mkdir -p build-artifacts
+
 cd build-artifacts
+
+if dpkg -l | grep -q '^ii  vpn-nsswitch '; then
+  sudo apt purge vpn-nsswitch -y
+fi
+
 wget -O vpn-nsswitch.deb $(curl -s https://api.github.com/repos/mdelgert/vpn-nsswitch/releases/latest | grep "browser_download_url.*deb" | cut -d '"' -f 4)
+
 dpkg -i vpn-nsswitch.deb
+
 apt-get install -f
 
 exit 0

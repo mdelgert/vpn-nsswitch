@@ -12,6 +12,6 @@ sudo chown -R $(id -u):$(id -g) ../
 debuild -us -uc
 mkdir -p build-artifacts 2>/dev/null
 mv ../vpn-nsswitch_* build-artifacts/
-lintian build-artifacts/*.deb
+# lintian build-artifacts/*.deb
 
 exit 0

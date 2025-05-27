@@ -10,6 +10,13 @@ cd ../
 
 cd build-artifacts
 
-sudo dpkg -i vpn-nsswitch_1.0.0_amd64.deb
+if dpkg -l | grep -q '^ii  vpn-nsswitch '; then
+  sudo apt purge vpn-nsswitch -y
+fi
+
+sudo dpkg -i *.deb
+
+# Show installed files
+dpkg -L vpn-nsswitch
 
 exit 0
