@@ -5,9 +5,7 @@
 
 override_dh_clean:
 	dh_clean
-	rm -f vpn-nsswitch
-	rm -rf build-artifacts
-	mkdir -p build-artifacts
+	echo "Clean logic moved to tools/clean.sh"
 
 override_dh_auto_build:
 	gcc -Wall -g -O2 -o vpn-nsswitch main.c
