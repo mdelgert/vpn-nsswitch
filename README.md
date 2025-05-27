@@ -23,14 +23,14 @@ to maintain default mDNS behavior.
 - Supports OpenVPN and WireGuard VPNs with NetworkManager
 - Automatically modifies `/etc/nsswitch.conf` when VPN connects/disconnects
 - Preserves system integrity with backups and logging (`/var/log/nsswitch_script.log`)
-- Easy installation via `.deb` package
+- Easy installation via `.deb` package or local build scripts
 - Compatible with Ubuntu 24.04 (other versions may work but are untested)
 
 ---
 
 ## Installation
 
-### Download and Install
+### Download and Install (Prebuilt Package)
 
 Download the latest `.deb` package from the [Releases page](https://github.com/mdelgert/vpn-nsswitch/releases).
 
@@ -42,6 +42,22 @@ sudo dpkg -i vpn-nsswitch.deb
 sudo apt-get install -f
 ```
 
+### Local Build and Install (For Developers)
+
+You can build and install the package locally using the provided scripts:
+
+```sh
+cd tools
+./build.sh         # Build the .deb package
+./install-local.sh # Install the built package locally
+```
+
+To remove:
+
+```sh
+./remove.sh
+```
+
 ---
 
 ## Verify Installation
@@ -49,14 +65,14 @@ sudo apt-get install -f
 Check installed package:
 
 ```sh
-dpkg -l nsswitch-vpn
+dpkg -l vpn-nsswitch
 ```
 
 Confirm scripts and configs:
 
 ```sh
 ls /etc/nsswitch.d/
-ls /etc/NetworkManager/dispatcher.d/99-vpn-nsswitch.sh
+ls /etc/NetworkManager/dispatcher.d/vpn-nsswitch-*.sh
 ```
 
 ---
@@ -221,7 +237,7 @@ nmcli connection show WireGuard
 Remove the package:
 
 ```sh
-sudo apt remove nsswitch-vpn
+sudo apt remove vpn-nsswitch
 ```
 
 This runs `/etc/nsswitch.d/nsswitch_down.sh` to restore `/etc/nsswitch.conf`.
