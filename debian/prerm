@@ -1,11 +1,17 @@
 #!/bin/sh
+
+# Before removal (not purge)
 set -e
 
-sudo rm -f /var/log/nsswitch_script.log
-sudo rm -f /usr/bin/vpn-nsswitch
-sudo rm -f /etc/NetworkManager/dispatcher.d/vpn-nsswitch-openvpn.sh
-sudo rm -f /etc/NetworkManager/dispatcher.d/vpn-nsswitch-wireguard.sh
-sudo rm -rf /etc/nsswitch.d/
+echo "prerm script running..."
+
+sudo rm -f /var/log/nsswitch_openvpn.log
+sudo rm -f /var/log/nsswitch_wireguard.log
+
+# sudo rm -f /usr/bin/vpn-nsswitch
+# sudo rm -f /etc/NetworkManager/dispatcher.d/vpn-nsswitch-openvpn.sh
+# sudo rm -f /etc/NetworkManager/dispatcher.d/vpn-nsswitch-wireguard.sh
+# sudo rm -rf /etc/nsswitch.d/
 
 exit 0
 

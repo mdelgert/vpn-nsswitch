@@ -9,7 +9,7 @@ EXPECTED_INTERFACE="wg0"
 SOURCE_DIR="etc/nsswitch.d"
 UP_SCRIPT="$SOURCE_DIR/nsswitch_up.sh"
 DOWN_SCRIPT="$SOURCE_DIR/nsswitch_down.sh"
-LOG_FILE="/var/log/nsswitch_script.log"
+LOG_FILE="/var/log/nsswitch_wireguard.log"
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 
 # Function to log messages
@@ -38,7 +38,7 @@ fi
 case "$ACTION" in
     up)
         if [[ -x "$UP_SCRIPT" ]]; then
-            log_message "INFO" "Wireguard running $UP_SCRIPT for $EXPECTED_INTERFACE VPN up"
+            log_message "INFO" "Running $UP_SCRIPT for $EXPECTED_INTERFACE VPN up"
             sudo "$UP_SCRIPT"
             if [[ $? -eq 0 ]]; then
                 log_message "INFO" "$UP_SCRIPT executed successfully"
@@ -51,7 +51,7 @@ case "$ACTION" in
         ;;
     down)
         if [[ -x "$DOWN_SCRIPT" ]]; then
-            log_message "INFO" "Wireguard running $DOWN_SCRIPT for $EXPECTED_INTERFACE VPN down"
+            log_message "INFO" "Running $DOWN_SCRIPT for $EXPECTED_INTERFACE VPN down"
             sudo "$DOWN_SCRIPT"
             if [[ $? -eq 0 ]]; then
                 log_message "INFO" "$DOWN_SCRIPT executed successfully"

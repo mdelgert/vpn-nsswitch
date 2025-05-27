@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Before install or upgrade
+set -e
+
+echo "preinst script running..."
+
+# Backup the current nsswitch.conf if it exists
+if [ -f /etc/nsswitch.conf ] && [ ! -f /etc/nsswitch.conf.original ]; then
+  cp /etc/nsswitch.conf /etc/nsswitch.conf.original
+fi
+
+exit 0
+
+#DEBHELPER#

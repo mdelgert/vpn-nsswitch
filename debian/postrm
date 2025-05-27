@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# After removal or purge
+set -e
+
+echo "postrm script running..."
+
+# Restore backup on purge
+if [ "$1" = "purge" ] && [ -f /etc/nsswitch.conf.original ]; then
+  cp /etc/nsswitch.conf.original /etc/nsswitch.conf
+  rm -f /etc/nsswitch.conf.original
+fi
+
+exit 0
+
+#DEBHELPER#

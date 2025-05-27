@@ -1,8 +1,15 @@
 #!/bin/sh
+
+# After install or upgrade
 set -e
 
-touch /var/log/nsswitch_script.log
-chmod 644 /var/log/nsswitch_script.log
+echo "postinst script running..."
+
+# Create log files for nsswitch modules
+touch /var/log/nsswitch_openvpn.log
+chmod 644 /var/log/nsswitch_openvpn.log
+touch /var/log/nsswitch_wireguard.log
+chmod 644 /var/log/nsswitch_wireguard.log
 
 exit 0
 
