@@ -30,7 +30,19 @@ to maintain default mDNS behavior.
 
 ## Installation
 
-### Download and Install (Prebuilt Package)
+### Helper Install Script
+
+```sh
+curl -sSL https://raw.githubusercontent.com/mdelgert/vpn-nsswitch/refs/heads/main/tools/install.sh | bash
+```
+
+### Helper Uninstall Script
+
+```sh
+curl -sSL https://raw.githubusercontent.com/mdelgert/vpn-nsswitch/refs/heads/main/tools/uninstall.sh | bash
+```
+
+### Manual Install (Prebuilt Package)
 
 Download the latest `.deb` package from the [Releases page](https://github.com/mdelgert/vpn-nsswitch/releases).
 
@@ -40,12 +52,6 @@ Install using `dpkg`:
 wget -O vpn-nsswitch.deb $(curl -s https://api.github.com/repos/mdelgert/vpn-nsswitch/releases/latest | grep "browser_download_url.*deb" | cut -d '"' -f 4)
 sudo dpkg -i vpn-nsswitch.deb
 sudo apt-get install -f
-```
-
-Install using `Install Script`:
-
-```sh
-wget -O 
 ```
 
 ### Local Build and Install (For Developers)
