@@ -30,15 +30,19 @@ to maintain default mDNS behavior.
 
 ## Installation
 
-### Helper Install Script
+## 🛠️ Easy Install
 
-```sh
+[![Install](https://img.shields.io/badge/install-vpn--nsswitch-blue?logo=ubuntu)](https://raw.githubusercontent.com/mdelgert/vpn-nsswitch/main/tools/install.sh)
+
+```bash
 curl -sSL https://raw.githubusercontent.com/mdelgert/vpn-nsswitch/main/tools/install.sh | bash
 ```
 
-### Helper Uninstall Script
+## ❌ Uninstall
 
-```sh
+[![Uninstall](https://img.shields.io/badge/uninstall-vpn--nsswitch-red?logo=ubuntu)](https://raw.githubusercontent.com/mdelgert/vpn-nsswitch/main/tools/uninstall.sh)
+
+```bash
 curl -sSL https://raw.githubusercontent.com/mdelgert/vpn-nsswitch/main/tools/uninstall.sh | bash
 ```
 
