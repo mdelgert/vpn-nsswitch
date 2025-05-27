@@ -42,6 +42,12 @@ sudo dpkg -i vpn-nsswitch.deb
 sudo apt-get install -f
 ```
 
+Install using `Install Script`:
+
+```sh
+wget -O 
+```
+
 ### Local Build and Install (For Developers)
 
 You can build and install the package locally using the provided scripts:
