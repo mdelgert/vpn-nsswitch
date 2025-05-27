@@ -11,9 +11,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-24.04
-    container:
-      image: mcr.microsoft.com/devcontainers/base:ubuntu-24.04
-      
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
