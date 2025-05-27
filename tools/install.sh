@@ -11,8 +11,8 @@ sudo apt purge -y vpn-nsswitch || true
 
 wget -O vpn-nsswitch.deb $(curl -s https://api.github.com/repos/mdelgert/vpn-nsswitch/releases/latest | grep "browser_download_url.*deb" | cut -d '"' -f 4)
 
-dpkg -i vpn-nsswitch.deb
+sudo dpkg -i vpn-nsswitch.deb
 
-apt-get install -f
+sudo apt-get install -f
 
 exit 0

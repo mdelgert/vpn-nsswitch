@@ -33,13 +33,13 @@ to maintain default mDNS behavior.
 ### Helper Install Script
 
 ```sh
-curl -sSL https://raw.githubusercontent.com/mdelgert/vpn-nsswitch/refs/heads/main/tools/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/mdelgert/vpn-nsswitch/main/tools/install.sh | bash
 ```
 
 ### Helper Uninstall Script
 
 ```sh
-curl -sSL https://raw.githubusercontent.com/mdelgert/vpn-nsswitch/refs/heads/main/tools/uninstall.sh | bash
+curl -sSL https://raw.githubusercontent.com/mdelgert/vpn-nsswitch/main/tools/uninstall.sh | bash
 ```
 
 ### Manual Install (Prebuilt Package)
