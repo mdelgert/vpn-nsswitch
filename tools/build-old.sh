@@ -21,6 +21,9 @@ done
 
 # Build the package
 cd "$PROJECT_ROOT"
+
+#sudo chown -R $(id -u):$(id -g) ../
+
 # dpkg-buildpackage -us -uc -b
 dpkg-buildpackage -us -uc
 

@@ -1,6 +1,17 @@
 #!/usr/bin/make -f
+
 %:
 	dh $@
 
-override_dh_auto_make:
-	make
+override_dh_clean:
+	dh_clean
+	rm -f vpn-nsswitch
+	rm -rf build-artifacts
+	mkdir -p build-artifacts
+
+override_dh_auto_build:
+	gcc -Wall -g -O2 -o vpn-nsswitch main.c
+
+override_dh_auto_install:
+	install -D -m 0755 vpn-nsswitch debian/vpn-nsswitch/usr/bin/vpn-nsswitch
+	strip --strip-unneeded debian/vpn-nsswitch/usr/bin/vpn-nsswitch
