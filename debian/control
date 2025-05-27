@@ -1,17 +1,15 @@
 Source: vpn-nsswitch
 Section: utils
-Priority: extra
+Priority: optional
 Maintainer: Matthew Elgert <mdelgert@yahoo.com>
 Build-Depends: debhelper-compat (= 12)
-Standards-Version: 3.9.3
+Standards-Version: 4.6.2
 Vcs-Git: https://github.com/mdelgert/vpn-nsswitch.git
 Vcs-Browser: https://github.com/mdelgert/vpn-nsswitch
+Homepage: https://github.com/mdelgert/vpn-nsswitch
 
 Package: vpn-nsswitch
-Section: utils
-Priority: optional
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, network-manager
-Description: Automates NSSwitch changes for Wireguard and OpenVpn DNS resolution
- Installs scripts to modify /etc/nsswitch.conf when OpenVPN (tun0) or WireGuard
- (wg0) by NetworkManager are activated or deactivated.
+Description: Automates NSSwitch configuration files to allow proper DNS
+ resolution when using OpenVPN or WireGuard with NetworkManager.
