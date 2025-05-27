@@ -10,5 +10,24 @@ vpn-nsswitch \- manage NSSwitch configuration for VPNs
 .SH OPTIONS
 This command currently takes no options.
 
+.SH EXAMPLES
+.B vpn-nsswitch
+Run the utility to apply NSSwitch configuration for VPNs.
+
+.SH FILES
+/etc/nsswitch.d/nsswitch_up.conf
+/etc/nsswitch.d/nsswitch_down.conf
+/etc/NetworkManager/dispatcher.d/vpn-nsswitch-openvpn.sh
+/etc/NetworkManager/dispatcher.d/vpn-nsswitch-wireguard.sh
+
+.SH EXIT STATUS
+0 on success, non-zero on error.
+
+.SH SEE ALSO
+nsswitch.conf(5), NetworkManager(8)
+
+.SH BUGS
+Report bugs to <https://github.com/melgert/vpn-nsswitch>
+
 .SH AUTHOR
 Matthew Elgert
